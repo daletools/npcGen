@@ -14,14 +14,13 @@ input {
     align-items: center;
     justify-content:flex-start;
     background-color: darkgrey;
-    margin: 50px;
+    margin: 30px;
     max-width: 55%;
-    max-height: 800px;
     flex-grow: 1;
 }
 
 #instructions{
-    margin: 50px 0px;
+    margin: 30px 0px;
     border: 2px solid;
     padding: 1em;
     text-align: center;
@@ -30,12 +29,12 @@ input {
 }
 
 #input {
-    margin: 50px, 0px;
+    margin: 10px, 0px;
     border: 2px solid;
     padding: 1em;
     text-align: center;
-    display: inline-block;
     background-color: lightgrey;
+    display: flex;
 ;}
 
 #results {
@@ -43,8 +42,8 @@ input {
     border: 2px solid;
     padding: 1em;
     text-align: center;
-    min-width: 45%;
-    display: flex;
+    width: 45%;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     background-color: lightgreen;
@@ -56,4 +55,25 @@ input {
 #jsonOutput {
     display: flex;
     align-items: flex-end;
+}
+
+.collapse {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid;
+    display: inline-flex;
+    align-self: left;
+}
+
+.tab {
+    margin: 10px;
+    padding: 1em;
+    border: 2px solid;
+    width: 95%;
+}
+
+#generate {
+    display: inline-flex;
+    align-self: right;
+
 }

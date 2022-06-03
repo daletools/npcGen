@@ -1,0 +1,15 @@
+NPC Generator
+
+NPC Attributes:
+    Name
+    Race
+    Age
+    Profession
+    Home Region?
+    Temperment
+    Bond/Ideal/Flaw?
+    Held items?
+
+Manual Entry for each attribute, program fills in missing?
+Weighted outcomes based on other answers?
+Based on general fantasy ideas, try to draw only from SRD re: races and rules

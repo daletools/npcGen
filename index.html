@@ -9,76 +9,93 @@
 
     <body>
 
-        <section class="left">
-            <section id="instructions">
-                Placeholder text, instructions go here.
-            </section>
-
-            <section id="input">
-
-                <div>
-                    Name:
-                    <input type="text" id="nameInput"><br>
-
-                    NPC Race: 
-                    <input type="text" id="raceInput" list="races"><br>
-                    <datalist id="races">
-                        <option value="Dragonborn">
-                        <option value="Dwarf">
-                        <option value="Elf">
-                        <option value="Gnome">
-                        <option value="Half-Elf">
-                        <option value="Half-Orc">        
-                        <option value="Human"> 
-                        <option value="Halfling">
-                        <option value="Tiefling">
-                    </datalist>
-
-                    Age:
-                    <input type="range" id="ageInput"><br>
-
-                    Profession:
-                    <input type="text" id="professionInput"><br>
-
-                    Home Region:
-                    <input type="text" id="homeInput"><br>
-
-                    Temperament:
-                    <input type="text" id="temperamentInput"><br>
-
-                    Bond:
-                    <input type="text" id="bondInput"><br>
-
-                    Ideal:
-                    <input type="text" id="idealInput"><br>
-
-                    Flaw:
-                    <input type="text" id="flawInput"><br>
-
-                    Alignment:
-                    <select id="alignmentInput">
-                        <option value=null>Random</option>
-                        <option value="Unaligned">Unaligned</option>
-                        <option value="Lawful Good">Lawful Good</option>
-                        <option value="Neutral Good">Neutral Good</option>
-                        <option value="Chaotic Good">Chaotic Good</option>
-                        <option value="Lawful Neutral">Lawful Neutral</option>
-                        <option value="Neutral">Neutral</option>
-                        <option value="Lawful Neutral">Lawful Neutral</option>
-                        <option value="Lawful Evil">Lawful Evil</option>
-                        <option value="Neutral Evil">Neutral Evil</option>
-                        <option value="Chaotic Evil">Chaotic Evil</option>
-                    </select>
-
-                    <button id="btn">Generate</button>
-                </div>
-                
-            </section>
+        <section class="left" id="input">
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Name:</span>
+                <input type="text" value="" id="nameInput"><br>
+                <span>Randomize?</span>
+                <input type="checkbox" id="randomizeName">
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Race:</span>
+                <select id="raceInput">
+                    <option value="">Random</option>
+                    <option value="Dragonborn">Dragonborn</option>
+                    <option value="Dwarf">Dwarf</option>
+                    <option value="Elf">Elf</option>
+                    <option value="Gnome">Gnome</option>
+                    <option value="Half-Elf">Half-Elf</option>
+                    <option value="Half-Orc">Half-Orc</option>
+                    <option value="Halfling">Halfling</option>
+                    <option value="Human">Human</option>
+                    <option value="Tiefling">Tiefling</option>
+                </select>
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Age:</span>
+                <input type="range" id="ageInput"><br>
+                <span>Randomize?</span>
+                <input type="checkbox" id="randomizeAge">
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Profession:</span>
+                <select id="professionInput">
+                    <option value="">Random</option>
+                    <option value="Acolyte">Acolyte</option>
+                    <option value="Adventurer">Adventurer</option>
+                    <option value="Craftsman">Craftsman</option>
+                    <option value="Guard">Guard</option>
+                    <option value="Merchant">Merchant</option>
+                </select>
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Home:</span>
+                <select id="homeInput">
+                    <option value="">Random</option>
+                    <option value="City">City</option>
+                    <option value="Town">Town</option>
+                    <option value="Village">Village</option>
+                </select>
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Temperament:</span>
+                <select id="temperamentInput">
+                    <option value="Random">Random</option>
+                </select>
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <span>Alignment:</span>
+                <select id="alignmentInput">
+                    <option value=null>Random</option>
+                    <option value="Unaligned">Unaligned</option>
+                    <option value="Lawful Good">Lawful Good</option>
+                    <option value="Neutral Good">Neutral Good</option>
+                    <option value="Chaotic Good">Chaotic Good</option>
+                    <option value="Lawful Neutral">Lawful Neutral</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Lawful Neutral">Lawful Neutral</option>
+                    <option value="Lawful Evil">Lawful Evil</option>
+                    <option value="Neutral Evil">Neutral Evil</option>
+                    <option value="Chaotic Evil">Chaotic Evil</option>
+                </select>
+            </div>
+            <div class="tab">
+                <button type="button" class="collapse">Advanced V</button>
+                <button type="button" id="generate">Generate</button>
+            </div>
         </section>
 
         <aside id="results">
             <div id="output"></div>
-            <textarea id="jsonOutput" readonly cols="40" rows="3">TBD OUTPUT</textarea>
+            <span id="textOutput"></span>
+            <textarea style="display:none" id="jsonOutput" readonly cols="40" rows="3">TBD OUTPUT</textarea>
         </aside>
     </body>
 

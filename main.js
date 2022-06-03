@@ -8,10 +8,10 @@ let inputs = {
     profession: null,
     home: null,
     temperament: null,
+    alignment: null,
     bond: null,
     ideal: null,
     flaw: null,
-    alignment: null,
     //array of unfilled values
     blanks: [],             
 
@@ -49,16 +49,29 @@ let inputs = {
             console.log(`user chose a custom race called ${this.race}`);
         }
 
+        if (document.getElementById("randomizeAge")) {
+            this.age = Math.floor(Math.random() * 100);
+        }
         this.age = Math.floor(this.age * ((traits.race[usedRace][2] - traits.race[usedRace][1]) / 100) + traits.race[usedRace][1]);     //assigns age based on race
         console.log(`assigned age is ${this.age}`);
+
+        if (this.blanks.includes("home")) {
+            this.home = traits.home[Math.floor(Math.random() * traits.home.length)];
+        }
+
+        if (this.blanks.includes("profession")) {
+            this.profession = traits.profession[Math.floor(Math.random() * traits.profession.length)];
+        }
         
+        output();
     }
 }
 
 function output() {
     console.log('I output the results!');
+    document.getElementById("textOutput").innerHTML = `${inputs.name} is a ${inputs.age} year old ${inputs.race} ${inputs.profession}.  They hail from a ${inputs.home}.`;
 }
 
-document.getElementById('btn').onclick = () => {
+document.getElementById('generate').onclick = () => {
     inputs.assign();
 }
