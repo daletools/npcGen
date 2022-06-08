@@ -51,6 +51,7 @@ let inputs = {
 
         if (document.getElementById("randomizeAge")) {
             this.age = Math.floor(Math.random() * 100);
+            document.getElementById("ageInput").value = this.age;
         }
         this.age = Math.floor(this.age * ((traits.race[usedRace][2] - traits.race[usedRace][1]) / 100) + traits.race[usedRace][1]);     //assigns age based on race
         console.log(`assigned age is ${this.age}`);
