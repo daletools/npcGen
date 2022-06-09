@@ -1,4 +1,4 @@
-import { traits } from "/traits.js";
+import { traits } from "./traits.js";
 
 let inputs = {
     //keys for input values
