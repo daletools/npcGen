@@ -6,10 +6,14 @@ NPC Attributes:
     Age
     Profession
     Home Region?
-    Temperment
+    Temperament
     Bond/Ideal/Flaw?
     Held items?
 
 Manual Entry for each attribute, program fills in missing?
 Weighted outcomes based on other answers?
 Based on general fantasy ideas, try to draw only from SRD re: races and rules
+
+Temperament:
+    based on "CANOE" rubric, range from 0-3 for Very negative, negative, positive, very positive
+    
