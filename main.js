@@ -38,7 +38,7 @@ let inputs = {
         this.setAge();
         this.setHome();
         this.setProfession();
-        this.setTemper();
+      //  this.setTemper();
         this.setAlignment();
         output();
     },
