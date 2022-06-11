@@ -38,7 +38,7 @@ let inputs = {
         this.setAge();
         this.setHome();
         this.setProfession();
-      //  this.setTemper();
+        this.setTemper();
         this.setAlignment();
         output();
     },
@@ -62,7 +62,7 @@ let inputs = {
     },
 
     setAge() {
-        if (document.getElementById("randomizeAge")) {
+        if (randomAgeCheck) {
             this.age = Math.floor(Math.random() * 100);
             document.getElementById("ageInput").value = this.age;
         }
@@ -83,36 +83,67 @@ let inputs = {
     },
 
     setTemper() {
-        this.canoe.length = 0;      //reset canoe array
-        this.orderedCanoe.length = 0;
+        this.canoe.length = 0;      //reset canoe array        
 
         for (let i = 0; i < 5; i++) {
             this.canoe.push(Math.floor(Math.random() * 4));     //fill canoe array
         }
         console.log(`CANOE results are ${this.canoe}`);
 
-        let tempMax = this.canoe.indexOf(Math.max(...this.canoe));
-        const orderedCanoe = this.canoe.map();
+        const orderedCanoe = [];
 
-        for (i = 0; i < 4; i++) {
-
-            let diff;
-            this.temperament += traits.temper[this.canoe[i]][diff][canoe] + ", ";
+        for (let i = 3; i >= 0; i--) {
+            for (let j = 0; j < this.canoe.length; j++) {       //sort canoe highest to lowest into orderedCanoe
+                if (this.canoe[j] === i) {
+                    orderedCanoe.push(j);
+                }
+            }
         }
+
+        this.temperament = personalityTest(orderedCanoe[0], orderedCanoe[1]) + ', ';
+        this.temperament += personalityTest(orderedCanoe[3], orderedCanoe[4]) + ', ';
+        this.temperament += personalityTest(orderedCanoe[2], orderedCanoe[Math.floor(Math.random() * 5)]) + '.';
     },
 
     setAlignment() {
-        this.alignment = traits.alignment[0][Math.floor(Math.random() * 3)] + " " + traits.alignment[1][Math.floor(Math.random() * 3)]
+        this.alignment = traits.alignment[0][Math.floor(Math.random() * 3)] + " " + traits.alignment[1][Math.floor(Math.random() * 3)];
+        if (this.alignment === "neutral neutral") {
+            this.alignment = "neutral";
+        }
     }
+
+}
+
+let randomAgeCheck = false;
+
+function personalityTest (adj1, adj2) {
+    if (adj1 > 1 && adj2 > 1) { //if both "positive"
+        return traits.temper[0][adj1][adj2];
+    } else if (adj1 < 2 && adj2 < 2) { //if both "negative"
+        return traits.temper[3][adj1][adj2];
+    } else if (Math.abs(adj1 - 3) === adj2 || Math.abs(adj2 - 3) === adj1) { //one pos one neg, same magnitude
+        return traits.temper[1][adj1][adj2] + ', ' + traits.temper[2][adj1][adj2];
+    } else if (Math.abs(adj1 - 3) > adj2 || Math.abs(adj2 - 3) > adj1) { //one pos one neg, emphasis on negative
+        return traits.temper[2][adj1][adj2];
+    } else { //should only be one pos one neg, emphasis on pos left
+        return traits.temper[1][adj1][adj2];
+    }  
+
+
 
 }
 
 function output() {
     console.log('I output the results!');
     document.getElementById("textOutput").innerHTML = `${inputs.name} is a ${inputs.age} year old ${inputs.race} ${inputs.profession}.  
-                                                        They hail from a ${inputs.home}, and tend toward a ${inputs.alignment} alignment.`;
+                                                        They hail from a ${inputs.home}, and tend toward a ${inputs.alignment} alignment.
+                                                        Their major personality traits include ${inputs.temperament}`;
 }
 
 document.getElementById('generate').onclick = () => {
     inputs.assign();
+}
+
+document.getElementById('randomizeAge').onclick = () => {
+    randomAgeCheck = !randomAgeCheck;
 }
